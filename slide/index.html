@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+
+<section data-markdown><script type="text/template">
+# コンピュータを(木で)作る
+
+2016/11/17
+山宮隆
+</script></section>
+
+<section data-markdown><script type="text/template">
+## コンピュータを作りたい
+
+* プログラマにとっての理解すること = 実装
+* コンピュータを作る事によってコンピュータを理解したいというのは当然の欲望
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 色々な自作コンピュータ
+
+* 部品を組み立てる。自作 PC。Arduino 工作。
+* PIC や AVR マイクロコントローラ工作。
+* 汎用 IC や FPGA で論理回路のレベルから作る。『CPU の創り方』渡波郁
+* 論理回路を電子部品以外の素材で作る。
+    * レゴ
+    * プラレール
+    * マーブルマシン
+    * ドミノ
+    * マインクラフト、スーパーマリオ
+</script></section>
+
+<section data-markdown><script type="text/template">
+## ヒモと滑車を使ったコンピュータ
+![遊びの展開](nikkei.jpg "遊びの展開")
+</script></section>
+
+<section data-markdown><script type="text/template">
+## ヒモと滑車を使ったコンピュータ
+![OR](dewdney-or.jpg "OR")
+![AND](dewdney-and.jpg "AND")
+</script></section>
+
+<section data-markdown><script type="text/template">
+## コンピュータを木で作りたい
+
+* 理解すること = 応用出来ること
+* 帰納から演繹へ
+    * 特殊例 -> 原理 -> 応用の導出
+    * 普通のコンピュータ -> 計算理論 -> 木のコンピュータ 
+* コンピュータを木で作る事が出来たら、それはコンピュータを理解出来たと言えるのでないか?
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 1998年 フィボナッチ・エンジン
+</script></section>
+
+<section data-background-video="fibonacciengine.mp4" data-background-video-loop>
+</section>
+
+<section data-background-image="gaikotsu.jpeg" data-background-size="contain">
+<h2>1998年 計算ガイコツ</h2>
+</section>
+
+<section data-markdown><script type="text/template">
+## 学んだこと
+
+| 可逆 | 非可逆 |
+|-------|-------|
+| x + 1 → y | x + y → z |
+| ![Bijection](Bijection.svg.png "Bijection") | ![Surjection](200px-Surjection.svg.png "Surjection") |
+| 一対一対応 | 多対一対応 |
+| 情報は保存される | 情報は捨てられる |
+| 歯車だけで実装可能 | ラチェット的な物が要る |
+</script></section>
+
+<section data-markdown><script type="text/template">
+## A.K.Dewdney のコンピュータを再現する
+
+* ヒモと滑車を使ったコンピュータはより本物に近い
+* コンピュータ = AND, OR, NOT の組み合わせ
+    * (なぜかは省略)
+
+![Function machine](191px-Function_machine2.svg.png "Function machine")
+![Injection](200px-Injection_keine_Injektion_2a.svg.png "Injection")
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 2008年: 段ボールによるブール代数モデル
+</script></section>
+
+<section data-background-image="stringOr.jpg" data-background-size="contain">
+</section>
+
+<section data-markdown><script type="text/template">
+## 学んだこと
+
+![AND](dewdney-and-thumb.jpg "AND")
+
+* A.K.Dewdney のモデルは実装出来ない。
+* OR と NOT だけなら何とか作れる。
+* OR と AND はラベルが違うだけで実質同じ物。
+</script></section>
+
+<section data-background-image="notation1.jpg" data-background-size="contain">
+<h2>表記法の開発</h2>
+</section>
+
+<section data-markdown><script type="text/template">
+## 半加算器を木で作りたい
+
+| A | B | OUTPUT |
+|---|---|-------:|
+| 0 | 0 |    0 0 |
+| 0 | 1 |    0 1 |
+| 1 | 0 |    0 1 |
+| 1 | 1 |    1 1 |
+
+* 課題としてそれなりに複雑
+* 色々な人が作っている
+</script></section>
+
+<section data-markdown><script type="text/template">
+## 半加算器を木で作りたい
+
+![Diagram](halfAdderDiagram.png "Diagram")
+* C = A ∧ B
+* S = A xor B = ¬(A ∧ B) ∧ ¬(¬ A ∧ ¬B)
+</script></section>
+
+<section data-background-image="notation2.jpg" data-background-size="contain">
+<h2>半加算器の表記</h2>
+</section>
+
+<section data-background-image="stringAdder.jpg" data-background-size="contain">
+<h2>2008年: 糸と重りの半加算器</h2>
+</section>
+
+<section data-markdown><script type="text/template">
+## 2009年 木製半加算器
+![2019 Wooden half adder](2009-halfadder.jpg "2009 Wooden half adder")
+</script></section>
+
+<section data-background-video="2009-halfadder.mp4" data-background-video-loop data-background-video-muted>
+</section>
+
+<section data-markdown><script type="text/template">
+## 2016年 木製半加算器 2016
+* 回転機構を採用し抵抗を削減
+* 将来の全加算器実装への布石
+</script></section>
+
+<section data-background-video="2016-halfadder.mp4" data-background-video-loop>
+</section>
+
+<section data-markdown><script type="text/template">
+## 次の目標
+
+* 全加算器
+* ニューロネットワークの実装
+* スケール化(組み合わせ可能)
+* チューリングマシン互換
+
+次回目標: Maker Faire Tokyo 2017
+
+乞うご期待。
+</script></section>
+
+<section data-markdown><script type="text/template">
+## References
+
+* A.K.Dewdney the Tinkertoy Computer https://archive.org/details/tinkertoycomputer00dewd
+* 関数と写像: https://en.wikipedia.org/wiki/Function_(mathematics)
+* 別冊日経サイエンス コンピューターレクリエーション 4 遊びの展開 http://www.nikkei-science.com/page/sci_book/bessatsu/51113.html
+* 糸と重りの半加算器: http://d.hatena.ne.jp/propella/20081124/p1
+* Wooden Half Adder: http://propella.blogspot.jp/2009/11/wooden-half-adder.html
+</script></section>
+
+            </div>
+        </div>
+        <script src="js/reveal.js"></script>
+	<script src="lib/js/head.min.js"></script>
+        <script>
+            Reveal.initialize({dependencies: [
+            
+                { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+]});
+        </script>
+    </body>
+</html>
